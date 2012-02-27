@@ -1,6 +1,7 @@
 (ns swank.util.concurrent.thread
   (:use (swank util))
-  (:import (java.lang.Thread)))
+  (:import (java.lang.Thread))
+  (:require swank.repl-starvars)) ;; to load the namespace before the macro refers there
 
 (def #^{:dynamic true} *new-thread-group* nil)
 

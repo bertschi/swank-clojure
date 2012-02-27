@@ -6,6 +6,8 @@
         (swank.core connection hooks threadmap debugger-backends))
   (:require (swank.util.concurrent [mbox :as mb])
             (clj-stacktrace core repl))
+  (:require swank.repl-starvars
+	    swank.util.extract-test) ; just to have it loaded!
   (:use [swank.util.clj-stacktrace-compat
          :only [pst-elem-str find-source-width]])
   (:import (java.io BufferedReader)))
