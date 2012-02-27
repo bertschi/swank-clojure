@@ -11,18 +11,18 @@ For any further information please refer to the original page.
 This is a hack that does basically two things:
 
 1. Add variables to the REPL which hold the last few inputs. These
-   variables are in the namespace swank.repl-starvars and named **1,
+   variables are in the namespace *swank.repl-starvars* and named **1,
    **2 and **3.
    The names are inspired by *1, *2 and *3, but instead of holding the
    last output values, they contain the last, second to last and third
    most recent input form that you entered to the REPL.
 
-2. Using this variables an new slime functionality *slime-extract-test*
+2. Using this variables an new slime functionality **slime-extract-test**
    is provided. Calling this function will take your last REPL
    interaction and compile it into a test form suitable for using with
    clojure.test.
    The extracted test forms are simply appended to a buffer called
-   "Testing".  Using the global variable *testing-buffer* any other buffer can be
+   "Testing".  Using the global variable **testing-buffer** any other buffer can be
    used for collecting the tests.
 
 ## Installation
