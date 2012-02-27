@@ -17,7 +17,7 @@ This is a hack that does basically two things:
    last output values, they contain the last, second to last and third
    most recent input form that you entered to the REPL.
 
-2. Using this variables an new slime functionality **slime-extract-test**
+2. Using these variables a new slime functionality **slime-extract-test**
    is provided. Calling this function will take your last REPL
    interaction and compile it into a test form suitable for using with
    clojure.test.
