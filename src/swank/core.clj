@@ -518,7 +518,8 @@ values."
    it (will block if no mbox control message is available). This is
    intended to only be run on the control thread."
   ([conn]
-     (binding [*1 nil, *2 nil, *3 nil, *e nil]
+     (binding [*1 nil, *2 nil, *3 nil, *e nil
+	       swank.repl-starvars/**1 nil, swank.repl-starvars/**2 nil swank.repl-starvars/**3 nil]
        (with-connection conn
          (continuously (dispatch-event (mb/receive (current-thread)) conn))))))
 

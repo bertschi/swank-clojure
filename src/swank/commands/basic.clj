@@ -77,6 +77,9 @@
     (with-package-tracking
       (let [[value last-form] (eval-region form)]
         (when (and last-form (not (one-of? last-form '*1 '*2 '*3 '*e)))
+	  (set! swank.repl-starvars/**3 swank.repl-starvars/**2)
+	  (set! swank.repl-starvars/**2 swank.repl-starvars/**1)
+	  (set! swank.repl-starvars/**1 last-form)
           (set! *3 *2)
           (set! *2 *1)
           (set! *1 value))

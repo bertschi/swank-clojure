@@ -23,14 +23,15 @@
   `(start-thread (keep-bindings ~bindings (fn [] ~@body))))
 
 (defmacro dothread-keeping-clj [more-bindings & body]
-  (let [clj-star-syms (filter #(or (= (name %) "*e")
-                                   (= (name %) "*1")
-                                   (= (name %) "*2")
-                                   (= (name %) "*3")
-                                   (and (.startsWith #^String (name %) "*")
-                                        (.endsWith #^String (name %) "*")
-                                        (> (count (name %)) 1)))
-                              (keys (ns-publics (find-ns 'clojure.core))))]
+  (let [clj-star-syms (concat '(swank.repl-starvars/**1 swank.repl-starvars/**2 swank.repl-starvars/**3)
+			      (filter #(or (= (name %) "*e")
+					   (= (name %) "*1")
+					   (= (name %) "*2")
+					   (= (name %) "*3")
+					   (and (.startsWith #^String (name %) "*")
+						(.endsWith #^String (name %) "*")
+						(> (count (name %)) 1)))
+				      (keys (ns-publics (find-ns 'clojure.core)))))]
     `(dothread-keeping [~@clj-star-syms ~@more-bindings]
        ~@body)))
 
