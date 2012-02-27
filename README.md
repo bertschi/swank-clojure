@@ -39,17 +39,16 @@ This is a hack that does basically two things:
 
 ## Example usage
 
+   ```
    user> (range 7)
-   
    (0 1 2 3 4 5 6)
-   
-   user> (range 3)
-   
+
+   user> (range 3)   
    (0 1 2)
    
    user> (concat *1 *2)
-   
    (0 1 2 0 1 2 3 4 5 6)
+   ```
 
    Then hit **M-x slime-extract-test** and
 
